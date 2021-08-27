@@ -10,28 +10,33 @@ var Eleven = $('#11am');
 var Twelve = $('#12am');
 var Thirteen = $('#13pm');
 var Fourteen = $('#14pm');
-var Fifteen = $('15pm');
-var Sixteen = $('16pm');
-var Seventeen = $('17pm');
-var Eighteen = $('18pm');
-var Nineteen = $('19pm');
+var Fifteen = $('#15pm');
+var Sixteen = $('#16pm');
+var Seventeen = $('#17pm');
+var Eighteen = $('#18pm');
+var Nineteen = $('#19pm');
+var Twenty = $('#20pm')
+
+var Input;
+var LocalTiming;
 
 function displayTime() {
     CurrentDay.html(rightNow);
 };
 
 function init(){
-    var Base9 = JSON.parse(localStorage.getItem("9am"));
-    var Base10 = JSON.parse(localStorage.getItem("10am"));
-    var Base11 = JSON.parse(localStorage.getItem("11am"));
-    var Base12 = JSON.parse(localStorage.getItem("12am"));
-    var Base1 = JSON.parse(localStorage.getItem("1pm"));
-    var Base2 = JSON.parse(localStorage.getItem("2pm"));
-    var Base3 = JSON.parse(localStorage.getItem("3pm"));
-    var Base4 = JSON.parse(localStorage.getItem("4pm"));
-    var Base5 = JSON.parse(localStorage.getItem("5pm"));
-    var Base6 = JSON.parse(localStorage.getItem("6pm"));
-    var Base7 = JSON.parse(localStorage.getItem("7pm"));
+    var Base9 = JSON.parse(localStorage.getItem("09:00AM"));
+    var Base10 = JSON.parse(localStorage.getItem("10:00AM"));
+    var Base11 = JSON.parse(localStorage.getItem("11:00AM"));
+    var Base12 = JSON.parse(localStorage.getItem("12:00AM"));
+    var Base1 = JSON.parse(localStorage.getItem("01:00PM"));
+    var Base2 = JSON.parse(localStorage.getItem("02:00PM"));
+    var Base3 = JSON.parse(localStorage.getItem("03:00PM"));
+    var Base4 = JSON.parse(localStorage.getItem("04:00PM"));
+    var Base5 = JSON.parse(localStorage.getItem("05:00PM"));
+    var Base6 = JSON.parse(localStorage.getItem("06:00PM"));
+    var Base7 = JSON.parse(localStorage.getItem("07:00PM"));
+    var Base8 = JSON.parse(localStorage.getItem("08:00PM"));
 
     Nine.val(Base9);
     Ten.val(Base10);
@@ -44,6 +49,7 @@ function init(){
     Seventeen.val(Base5);
     Eighteen.val(Base6);
     Nineteen.val(Base7);
+    Twenty.val(Base8)
 };
 
 function Color(){
@@ -70,9 +76,9 @@ $(document).ready(function(){
 
     $(".Save").on("click", function(){
         Input = $(this).siblings(".timer").val().trim();
-        console.log(Input);
-        Timing = $(this).siblings(".title").text().trim();
-        localStorage.setItem(Timing, JSON.stringify(Input));
+        console.log(Input)
+        LocalTiming = $(this).siblings(".title").text().trim();
+        localStorage.setItem(LocalTiming, JSON.stringify(Input));
       });
 });
 
